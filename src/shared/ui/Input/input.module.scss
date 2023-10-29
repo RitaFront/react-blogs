@@ -1,3 +1,11 @@
+@import '../../../app/index.scss';
+
 .input {
   line-height: 22px;
+}
+
+.error {
+  text-align: left;
+  color: $red;
+  margin-top: -15px;
 }

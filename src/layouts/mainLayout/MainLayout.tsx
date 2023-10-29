@@ -7,14 +7,8 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export const MainLayout: React.FC = () => {
-  // const [show, setShow] = useState(false);
-
   return (
     <div>
-      {/* {show &&
-        toast.error('WOw so easy!', {
-          theme: 'dark',
-        })} */}
       <ToastContainer />
       <Header />
       <Container className="pt-5">
