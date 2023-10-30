@@ -26,6 +26,7 @@ export const Login = () => {
               password: values.password,
             })
             .then((res) => {
+              localStorage.setItem('token', res.data.user.token);
               navigate('/home');
             })
             .catch((err) => {
