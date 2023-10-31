@@ -6,13 +6,14 @@ interface IBtnBase {
   title: string;
   variant: string;
   onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
+  maxWidth?: string;
 }
 
 export const BtnBase = ({
   title,
   variant,
-
   onClick,
+  maxWidth,
 }: IBtnBase) => {
   return (
     <Button
@@ -20,6 +21,7 @@ export const BtnBase = ({
       className={styles.btnLogin}
       onClick={onClick}
       type="submit"
+      style={{ maxWidth: maxWidth }}
     >
       {title}
     </Button>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
-import { Header } from 'widgets/Header/components/Header';
+import { Header } from 'widgets/Header/components/HeaderFull/Header';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
