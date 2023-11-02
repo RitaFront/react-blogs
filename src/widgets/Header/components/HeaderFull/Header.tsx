@@ -9,7 +9,7 @@ export const Header: React.FC = () => {
     <header className={styles.header + ' pt-2 pb-2'}>
       <Container>
         <Row>
-          <Col>
+          <Col sm={3}>
             <Logo />
           </Col>
           <Col>

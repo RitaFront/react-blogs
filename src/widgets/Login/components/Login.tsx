@@ -6,9 +6,11 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { Form, Formik } from 'formik';
+import { useActions } from 'store/hooks/useActions';
 
 export const Login = () => {
   const navigate = useNavigate();
+  const { loginRequestAsync } = useActions();
 
   return (
     <div className={styles.login}>
@@ -27,6 +29,7 @@ export const Login = () => {
             })
             .then((res) => {
               localStorage.setItem('token', res.data.user.token);
+              loginRequestAsync(res.data.user.token);
               navigate('/home');
             })
             .catch((err) => {
