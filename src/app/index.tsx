@@ -1,12 +1,15 @@
-import React, { useEffect } from 'react';
 import './index.scss';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { Home } from 'pages/home';
+import { Home } from 'pages/home/Home';
 import { MainLayout } from 'layouts/mainLayout';
 import { AuthLogin } from 'pages/auth/AuthLogin';
 import { AuthRegister } from 'pages/auth/AuthRegister';
-import { Profile } from 'pages/profile';
+import { Profile } from 'pages/profile/Profile';
 import { useActions } from 'store/hooks/useActions';
+import {
+  PrivateRouteAuth,
+  PrivateRoutePages,
+} from 'layouts/privateRoute';
 
 function App() {
   const token = window.localStorage.token;
@@ -17,15 +20,19 @@ function App() {
     <Routes>
       <Route path="/" element={<MainLayout />}>
         <Route path="" element={<Navigate replace to="home" />} />
-        <Route path="home" element={<Home />} />
-        <Route
-          path="auth"
-          element={<Navigate replace to="/auth/login" />}
-        />
-        <Route path="auth/login" element={<AuthLogin />} />
-        <Route path="auth/register" element={<AuthRegister />} />
+        <Route element={<PrivateRouteAuth />}>
+          <Route
+            path="auth"
+            element={<Navigate replace to="/auth/login" />}
+          />
+          <Route path="auth/login" element={<AuthLogin />} />
+          <Route path="auth/register" element={<AuthRegister />} />
+        </Route>
+        <Route element={<PrivateRoutePages />}>
+          <Route path="home" element={<Home />} />
+          <Route path="profile/:login" element={<Profile />} />
+        </Route>
 
-        <Route path="profile/:login" element={<Profile />} />
         <Route path="*" element={<div>Not Found</div>} />
       </Route>
     </Routes>

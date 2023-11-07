@@ -1,8 +1,8 @@
 import { Info } from 'entities/BlogInfo';
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
-import { BlockRegister } from 'widgets/BlockRegister/component';
-import { Login } from 'widgets/Login/components';
+import { BlockRegister } from 'widgets/BlockRegister';
+import { Login } from 'widgets/Login';
 
 export const AuthLogin: React.FC = () => {
   return (

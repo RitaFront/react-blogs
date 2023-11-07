@@ -1,14 +1,14 @@
 import { Action, ActionCreator } from 'redux';
-import {
-  IUser,
-  LoginActionTypes,
-  LoginRequestAction,
-  LoginRequestErrorAction,
-  LoginRequestSuccessAction,
-} from '../type/loginType';
 import { RootState } from 'store/rootReducer';
 import { ThunkAction } from 'redux-thunk';
 import axios from 'axios';
+import {
+  LoginRequestAction,
+  LoginActionTypes,
+  LoginRequestSuccessAction,
+  IUser,
+  LoginRequestErrorAction,
+} from '../type/loginType';
 
 export const loginRequest: ActionCreator<
   LoginRequestAction

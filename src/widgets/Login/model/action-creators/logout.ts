@@ -1,7 +1,7 @@
 import { ActionCreator } from 'redux';
 import {
-  LoginActionTypes,
   LogoutRequestAction,
+  LoginActionTypes,
 } from '../type/loginType';
 
 export const logoutRequest: ActionCreator<

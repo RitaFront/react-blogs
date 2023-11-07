@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
-import { BlockLogin } from 'widgets/BlockLogin/component/BlockLogin';
-import { Register } from 'widgets/Register/components';
+import { BlockLogin } from 'widgets/BlockLogin';
+import { Register } from 'widgets/Register';
 
 export const AuthRegister: React.FC = () => {
   return (

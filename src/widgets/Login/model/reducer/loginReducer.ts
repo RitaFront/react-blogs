@@ -1,8 +1,8 @@
 import { Reducer } from 'redux';
 import {
+  LoginState,
   LoginAction,
   LoginActionTypes,
-  LoginState,
 } from '../type/loginType';
 
 const initialState: LoginState = {

@@ -4,13 +4,13 @@ import { Input, InputName } from 'shared/ui/Input';
 import { BtnBase } from 'shared/ui/BtnBase';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
 import { Form, Formik } from 'formik';
 import { useActions } from 'store/hooks/useActions';
+import { useNavigate } from 'react-router-dom';
 
 export const Login = () => {
-  const navigate = useNavigate();
   const { loginRequestAsync } = useActions();
+  const navigate = useNavigate();
 
   return (
     <div className={styles.login}>
