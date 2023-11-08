@@ -1,0 +1,19 @@
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: $white;
+  background-color: $black;
+}
+
+.nav-link {
+  color: $black;
+}
+
+.page-link.active,
+.active > .page-link {
+  background-color: $black;
+  border-color: $black;
+}
+
+.pagination {
+  --bs-pagination-color: $black;
+}
