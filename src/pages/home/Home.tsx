@@ -1,3 +1,4 @@
+import { PreviewPost } from 'entities/PreviewPost';
 import React from 'react';
 import { PaginationBlock } from 'shared/ui/Pagination';
 import { Tags } from 'shared/ui/Tags';
@@ -23,6 +24,7 @@ export const Home: React.FC = () => {
         totalPages={totalPages}
         onClickPage={handleClickPage}
       />
+      <PreviewPost />
     </>
   );
 };
