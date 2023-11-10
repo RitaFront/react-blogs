@@ -10,6 +10,7 @@ import {
   PrivateRouteAuth,
   PrivateRoutePages,
 } from 'layouts/privateRoute';
+import { Post } from 'pages/post/Post';
 
 function App() {
   const token = window.localStorage.token;
@@ -31,6 +32,7 @@ function App() {
         <Route element={<PrivateRoutePages />}>
           <Route path="home" element={<Home />} />
           <Route path="profile/:login" element={<Profile />} />
+          <Route path="post/:id" element={<Post />} />
         </Route>
 
         <Route path="*" element={<div>Not Found</div>} />
