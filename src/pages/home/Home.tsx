@@ -1,4 +1,5 @@
 import { PreviewPost } from 'entities/PreviewPost';
+import { getTimePost } from 'entities/PreviewPost/lib/getTimePost';
 import React from 'react';
 import { PaginationBlock } from 'shared/ui/Pagination';
 import { Tags } from 'shared/ui/Tags';
@@ -11,7 +12,7 @@ const post = {
   avatar:
     'https://img.freepik.com/free-photo/a-digital-painting-of-a-mountain-with-a-colorful-tree-in-the-foreground_1340-25699.jpg?w=1380&t=st=1699519724~exp=1699520324~hmac=df1c16b05156ce4fd402b7edb0ce94a7d37e2dcf659e670a7855a150e4f7fcc2',
   userName: 'Ririka',
-  created: '5',
+  created: getTimePost(1699621795282),
   tags: ['html', 'js'],
   postImg:
     'https://img.freepik.com/free-photo/morskie-oko-in-tatry_1204-510.jpg?w=1380&t=st=1699521548~exp=1699522148~hmac=74f0b16d7eef31d02c6324e2790b949af8c144989e97939f496cdc6ef432b521',
