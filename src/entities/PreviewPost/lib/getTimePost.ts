@@ -19,5 +19,7 @@ export function getTimePost(created: number) {
     default:
       time = 'менее часа назад';
   }
-  return daysLag < 24 ? `${time}` : `${createAt}`;
+  return daysLag < 24
+    ? `${time}`
+    : `${createAt.toLocaleDateString()}`;
 }

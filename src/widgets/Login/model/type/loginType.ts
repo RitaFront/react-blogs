@@ -4,6 +4,7 @@ export interface IUser {
   birthday?: string;
   login?: string;
   userName?: string;
+  token?: string;
 }
 
 export interface LoginState {

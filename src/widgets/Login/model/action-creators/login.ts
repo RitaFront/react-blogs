@@ -50,6 +50,7 @@ export const loginRequestAsync =
             birthday: res.data.user.birthday,
             login: res.data.user.login,
             userName: res.data.user.userName,
+            token: res.data.user.token,
           })
         );
       })

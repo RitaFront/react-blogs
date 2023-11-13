@@ -2,24 +2,9 @@ import React from 'react';
 import styles from './previewPost.module.scss';
 import { BtnBase } from 'shared/ui/BtnBase';
 import { Link, useNavigate } from 'react-router-dom';
+import { IPost } from 'widgets/PreviewPosts/model/type/postsType';
 
-interface IPreviewPost {
-  id: string;
-  avatar: string;
-  userName: string;
-  created: string;
-  tags: string[];
-  postImg: string;
-  title: string;
-  descr: string;
-  comment: number;
-}
-
-interface IPreviewPostProps {
-  post: IPreviewPost;
-}
-
-export const PreviewPost = ({ post }: IPreviewPostProps) => {
+export const PreviewPost = ({ post, user }: IPost) => {
   const navigate = useNavigate();
   const handleClick = () => {
     navigate(`/post/${post.id}`);
@@ -29,17 +14,17 @@ export const PreviewPost = ({ post }: IPreviewPostProps) => {
       <div className={styles.header}>
         <div className={styles.user}>
           <Link
-            to={`/profile/${post.userName}`}
+            to={`/profile/${user.userName}`}
             className={styles.userProfile}
           >
             <img
-              src={post.avatar}
+              src={user.avatar}
               alt="avatar"
               className={styles.avatar}
             />
-            <span className={styles.userName}>{post.userName}</span>
+            <span className={styles.userName}>{user.userName}</span>
           </Link>
-          <span className={styles.creation}>{post.created}</span>
+          <span className={styles.creation}>{post.date}</span>
         </div>
         <div className={styles.tags}>
           {post.tags.map((tag, index) => {
@@ -53,13 +38,13 @@ export const PreviewPost = ({ post }: IPreviewPostProps) => {
       </div>
       <div className={styles.content}>
         <img
-          src={post.postImg}
+          src={post.image}
           alt="imagePost"
           className={styles.img}
         />
         <div className={styles.contentInfo}>
           <h3 className={styles.title}>{post.title}</h3>
-          <p className={styles.descr}>{post.descr}</p>
+          <p className={styles.descr}>{post.body}</p>
         </div>
       </div>
       <div className={styles.footer}>
@@ -102,7 +87,7 @@ export const PreviewPost = ({ post }: IPreviewPostProps) => {
               </g>
             </g>
           </svg>
-          {post.comment}
+          {post.comments.length}
         </button>
         <BtnBase
           title="Подробнее"
