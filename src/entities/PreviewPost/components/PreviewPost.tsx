@@ -48,7 +48,7 @@ export const PreviewPost = ({ post, user }: IPost) => {
         </div>
       </div>
       <div className={styles.footer}>
-        <button className={styles.comment}>
+        <button className={styles.comment} onClick={handleClick}>
           <svg
             width="800px"
             height="800px"

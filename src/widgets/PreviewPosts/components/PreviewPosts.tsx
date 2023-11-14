@@ -1,10 +1,10 @@
 import { PreviewPost } from 'entities/PreviewPost';
-import { getTimePost } from 'entities/PreviewPost/lib/getTimePost';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useActions } from 'store/hooks/useActions';
 import { RootState } from 'store/rootReducer';
 import { PostsState } from '../model/type/postsType';
+import styles from './previewPosts.module.scss';
 
 export const PreviewPosts = () => {
   const { postsRequestAsync } = useActions();
@@ -15,9 +15,6 @@ export const PreviewPosts = () => {
   const { posts } = useSelector<RootState, PostsState>(
     (state) => state.posts
   );
-  posts.map((post) => {
-    console.log(post);
-  });
 
   // const post = {
   //   id: '1',
@@ -35,7 +32,7 @@ export const PreviewPosts = () => {
   // };
 
   return (
-    <div>
+    <div className={styles.content}>
       {posts.map((post) => {
         return (
           <PreviewPost
