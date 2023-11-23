@@ -6,7 +6,7 @@ import {
 } from '../type/tagsHomeType';
 
 const initialState: TagsHomeState = {
-  tags: ['Все'],
+  tags: [],
   error: '',
   loading: false,
 };
@@ -25,7 +25,7 @@ export const tagsHomeReducer: Reducer<
       return {
         ...state,
         loading: false,
-        tags: [...state.tags, ...action.payload],
+        tags: ['Все', ...action.payload],
       };
     case TagsHomeActionTypes.TAGS_HOME_REQUEST_ERROR:
       return {

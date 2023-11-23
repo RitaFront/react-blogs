@@ -33,6 +33,23 @@ export const postsReducer: Reducer<PostsState, PostsAction> = (
         loading: false,
         error: action.payload,
       };
+    case PostsActionTypes.POSTS_BY_TAG_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case PostsActionTypes.POSTS_BY_TAG_REQUEST_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        posts: action.payload,
+      };
+    case PostsActionTypes.POSTS_BY_TAG_REQUEST_ERROR:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
     default:
       return state;
   }

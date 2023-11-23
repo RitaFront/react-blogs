@@ -23,7 +23,7 @@ export const AvatarUser = () => {
     >
       <span className={styles.userName}>{data.login}</span>
       <Image
-        src="/avatar.png"
+        src={data.avatar}
         alt="Avatar"
         className={styles.avatar}
         onClick={handleClick}

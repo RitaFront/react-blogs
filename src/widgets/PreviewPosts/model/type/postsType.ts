@@ -25,19 +25,28 @@ export enum PostsActionTypes {
   POSTS_REQUEST = 'POSTS_REQUEST',
   POSTS_REQUEST_SUCCESS = 'POSTS_REQUEST_SUCCESS',
   POSTS_REQUEST_ERROR = 'POSTS_REQUEST_ERROR',
+  POSTS_BY_TAG_REQUEST = 'POSTS_BY_TAG_REQUEST',
+  POSTS_BY_TAG_REQUEST_SUCCESS = 'POSTS_BY_TAG_REQUEST_SUCCESS',
+  POSTS_BY_TAG_REQUEST_ERROR = 'POSTS_BY_TAG_REQUEST_ERROR',
 }
 
 export interface PostsRequestAction {
-  type: PostsActionTypes.POSTS_REQUEST;
+  type:
+    | PostsActionTypes.POSTS_REQUEST
+    | PostsActionTypes.POSTS_BY_TAG_REQUEST;
 }
 
 export interface PostsRequestSuccessAction {
-  type: PostsActionTypes.POSTS_REQUEST_SUCCESS;
+  type:
+    | PostsActionTypes.POSTS_REQUEST_SUCCESS
+    | PostsActionTypes.POSTS_BY_TAG_REQUEST_SUCCESS;
   payload: IPost[];
 }
 
 export interface PostsRequestErrorAction {
-  type: PostsActionTypes.POSTS_REQUEST_ERROR;
+  type:
+    | PostsActionTypes.POSTS_REQUEST_ERROR
+    | PostsActionTypes.POSTS_BY_TAG_REQUEST_ERROR;
   payload: string;
 }
 
