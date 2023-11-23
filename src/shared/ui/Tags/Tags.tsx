@@ -1,10 +1,6 @@
 import React from 'react';
 import './tags.module.scss';
 import { Nav } from 'react-bootstrap';
-import { useSearchParams } from 'react-router-dom';
-import { TagsHomeState } from 'features/TagsHome/model/type/tagsHomeType';
-import { useSelector } from 'react-redux';
-import { RootState } from 'store/rootReducer';
 
 interface ITags {
   arr: string[];

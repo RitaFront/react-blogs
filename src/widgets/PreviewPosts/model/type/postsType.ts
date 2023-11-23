@@ -15,8 +15,14 @@ export interface IPost {
   user: IUser;
 }
 
+export interface IPagination {
+  currentPage: number;
+  totalPages: number;
+}
+
 export interface PostsState {
   posts: IPost[];
+  pagination: IPagination;
   error: string;
   loading: boolean;
 }
@@ -41,6 +47,7 @@ export interface PostsRequestSuccessAction {
     | PostsActionTypes.POSTS_REQUEST_SUCCESS
     | PostsActionTypes.POSTS_BY_TAG_REQUEST_SUCCESS;
   payload: IPost[];
+  pagination?: IPagination;
 }
 
 export interface PostsRequestErrorAction {

@@ -1,7 +1,5 @@
 import { PreviewPost } from 'entities/PreviewPost';
-import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useActions } from 'store/hooks/useActions';
 import { RootState } from 'store/rootReducer';
 import { PostsState } from '../model/type/postsType';
 import styles from './previewPosts.module.scss';

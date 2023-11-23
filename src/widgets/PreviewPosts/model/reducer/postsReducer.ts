@@ -7,6 +7,10 @@ import {
 
 const initialState: PostsState = {
   posts: [],
+  pagination: {
+    currentPage: 1,
+    totalPages: 1,
+  },
   error: '',
   loading: false,
 };
@@ -26,6 +30,7 @@ export const postsReducer: Reducer<PostsState, PostsAction> = (
         ...state,
         loading: false,
         posts: action.payload,
+        pagination: action.pagination!,
       };
     case PostsActionTypes.POSTS_REQUEST_ERROR:
       return {

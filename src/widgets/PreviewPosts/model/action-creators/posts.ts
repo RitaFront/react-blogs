@@ -1,5 +1,6 @@
 import { Action, ActionCreator } from 'redux';
 import {
+  IPagination,
   IPost,
   PostsActionTypes,
   PostsRequestAction,
@@ -19,9 +20,10 @@ export const postsRequest: ActionCreator<
 
 export const postsRequestSuccess: ActionCreator<
   PostsRequestSuccessAction
-> = (posts: IPost[]) => ({
+> = (posts: IPost[], pagination: IPagination) => ({
   type: PostsActionTypes.POSTS_REQUEST_SUCCESS,
   payload: posts,
+  pagination,
 });
 
 export const postsRequestError: ActionCreator<
@@ -32,12 +34,17 @@ export const postsRequestError: ActionCreator<
 });
 
 export const postsRequestAsync =
-  (): ThunkAction<void, RootState, unknown, Action<string>> =>
+  (
+    currentPage: number
+  ): ThunkAction<void, RootState, unknown, Action<string>> =>
   (dispatch) => {
     dispatch(postsRequest());
     axios
-      .get(`http://localhost:3000/blog/posts?page=1&postsPerPage=5`)
+      .get(
+        `http://localhost:3000/blog/posts?page=${currentPage}&postsPerPage=5`
+      )
       .then((res) => {
+        const pagination: IPagination = res.data.pagination;
         const posts: IPost[] = res.data.posts.map((item: IPost) => {
           return {
             post: {
@@ -59,10 +66,10 @@ export const postsRequestAsync =
             },
           };
         });
-        return posts;
+        return { posts, pagination };
       })
-      .then((posts) => {
-        dispatch(postsRequestSuccess(posts));
+      .then(({ posts, pagination }) => {
+        dispatch(postsRequestSuccess(posts, pagination));
       })
       .catch((err) => {
         dispatch(postsRequestError(err));

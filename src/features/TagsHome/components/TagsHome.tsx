@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Tags } from 'shared/ui/Tags';
 import { RootState } from 'store/rootReducer';
 import { TagsHomeState } from '../model/type/tagsHomeType';
 import { useSearchParams } from 'react-router-dom';
 import { useActions } from 'store/hooks/useActions';
-import { TagsFilterState } from '../model/type/tagsFilterType';
 
 export const TagsHome = () => {
   const { tags } = useSelector<RootState, TagsHomeState>(

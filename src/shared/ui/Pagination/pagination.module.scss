@@ -3,6 +3,7 @@
 .root {
   display: flex;
   gap: 7px;
+  margin-top: 30px;
 
   :global {
     .selected {
